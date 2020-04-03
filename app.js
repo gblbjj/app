@@ -1,7 +1,8 @@
 const express = require('express');
 const app = express();
+const data = require("./data.json");
 
-
+//app.get ('/', (req, res) => res.send('Ronaldo!') );
 app.use(express.json());
 
 app.get("/clients", function(req, res) {
@@ -9,7 +10,7 @@ app.get("/clients", function(req, res) {
    
 });
 
-app.get("/clients/:id", function(req, res) {
+app.get("/clients/:username", function(req, res) {
     const { id } = req.params;
     const client = data.find(cli => cli.id = id);
 
